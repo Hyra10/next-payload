@@ -21,14 +21,14 @@ const withPayload = async (config, paths) => {
           ? config.webpack(webpackConfig, webpackOptions)
           : webpackConfig;
 
-      // incomingWebpackConfig.module.rules.push({
-      //   oneOf: [
-      //     {
-      //       test: /\.(?:ico|gif|png|jpg|jpeg|woff(2)?|eot|ttf|otf|svg)$/i,
-      //       type: 'asset/resource',
-      //     },
-      //   ],
-      // })
+      incomingWebpackConfig.module.rules.push({
+        oneOf: [
+          {
+            test: /\.(?:ico|gif|woff(2)?|eot|ttf|otf|svg)$/i,
+            type: "asset/resource",
+          },
+        ],
+      });
 
       let newWebpackConfig = {
         ...incomingWebpackConfig,
